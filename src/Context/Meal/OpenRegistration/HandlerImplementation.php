@@ -10,12 +10,12 @@ class HandlerImplementation implements Handler
         $this->mealRepository = $mealRepository;
     }
 
-    public function openRegistration(RequestModel $requestModel)
+    public function openRegistration(RequestModel $requestModel): ResponseModel
     {
         # TODO - Validate if user is administrator
 
         # TODO - Validate if there is an already opened registration
 
-        $this->mealRepository->openRegistration();
+        return new ResponseModel($this->mealRepository->openRegistration());
     }
 }

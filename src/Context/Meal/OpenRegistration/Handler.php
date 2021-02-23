@@ -3,5 +3,5 @@ namespace Sandwicher\Domain\Context\Meal\OpenRegistration;
 
 interface Handler
 {
-    public function openRegistration(RequestModel $requestModel);
+    public function openRegistration(RequestModel $requestModel): ResponseModel;
 }

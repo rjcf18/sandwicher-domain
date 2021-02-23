@@ -3,5 +3,5 @@ namespace Sandwicher\Domain\Context\Meal\OpenRegistration;
 
 interface MealRepository
 {
-    public function openRegistration(): bool;
+    public function openRegistration(): int;
 }
