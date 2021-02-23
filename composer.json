@@ -2,6 +2,13 @@
     "name": "sandwicher/domain",
     "description": "A project to test some development concepts - Domain",
     "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Fusco",
+            "email": "ricardo.fusco2@gmail.com"
+        }
+    ],
     "config": {
         "bin-dir": "bin/",
         "platform": {
@@ -29,5 +36,11 @@
             "@unitTest"
         ],
         "unitTest": "bin/phpunit --configuration config/unit-test.xml --log-junit test/reports/unitReport.xml"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }
