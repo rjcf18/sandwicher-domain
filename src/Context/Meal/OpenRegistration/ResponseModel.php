@@ -1,17 +1,19 @@
 <?php declare(strict_types=1);
 namespace Sandwicher\Domain\Context\Meal\OpenRegistration;
 
+use Sandwicher\Domain\Shared\Entity\Meal as MealEntity;
+
 class ResponseModel
 {
-    protected int $mealId;
+    protected MealEntity $mealEntity;
 
-    public function __construct(int $mealId)
+    public function __construct(MealEntity $mealEntity)
     {
-        $this->mealId = $mealId;
+        $this->mealEntity = $mealEntity;
     }
 
-    public function getMealId(): int
+    public function getMealEntity(): MealEntity
     {
-        return $this->mealId;
+        return $this->mealEntity;
     }
 }

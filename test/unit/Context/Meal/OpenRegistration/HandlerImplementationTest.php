@@ -8,6 +8,7 @@ use Sandwicher\Domain\Context\Meal\OpenRegistration\HandlerImplementation;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\MealRepository;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\ResponseModel;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\Validator\Semantic as SemanticValidator;
+use Sandwicher\Domain\Shared\Entity\Meal as MealEntity;
 
 class HandlerImplementationTest extends TestCase
 {
@@ -52,7 +53,12 @@ class HandlerImplementationTest extends TestCase
      */
     public function testOpenRegistrationWhenNoMealRegistrationIsOpenReturnsMealId(): void
     {
-        $expectedResponse = new ResponseModel(1);
+        $expectedMeal = (new MealEntity())
+            ->setId(1)
+            ->setStatus(1)
+            ->setRegistrationCode('code');
+
+        $expectedResponse = new ResponseModel($expectedMeal);
 
         $this->semanticValidatorMock
             ->expects($this->once())
@@ -62,7 +68,7 @@ class HandlerImplementationTest extends TestCase
         $this->mealRepositoryMock
             ->expects($this->once())
             ->method('openRegistration')
-            ->willReturn($expectedResponse->getMealId());
+            ->willReturn($expectedResponse->getMealEntity());
 
         $response = $this->handler->openRegistration();
 
