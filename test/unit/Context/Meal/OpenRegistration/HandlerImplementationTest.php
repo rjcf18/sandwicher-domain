@@ -51,7 +51,7 @@ class HandlerImplementationTest extends TestCase
     /**
      * @throws MealRegistrationAlreadyOpenedException
      */
-    public function testOpenRegistrationWhenNoMealRegistrationIsOpenReturnsMealId(): void
+    public function testOpenRegistrationWhenNoMealRegistrationIsOpenReturnsMealEntity(): void
     {
         $expectedMeal = (new MealEntity())
             ->setId(1)

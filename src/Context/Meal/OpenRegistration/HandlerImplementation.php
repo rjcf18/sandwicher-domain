@@ -9,7 +9,7 @@ class HandlerImplementation implements Handler
 
     private MealRepository $mealRepository;
 
-    public function __construct(SemanticValidator$semanticValidator, MealRepository $mealRepository)
+    public function __construct(SemanticValidator $semanticValidator, MealRepository $mealRepository)
     {
         $this->semanticValidator = $semanticValidator;
         $this->mealRepository = $mealRepository;
