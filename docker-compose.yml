@@ -3,16 +3,21 @@ version: '3'
 services:
   php:
     build:
-      context: ./
-      dockerfile: docker/php/Dockerfile
+      context: docker/php/8.0
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP}'
+    image: sandwicher-php8.0/domain
     container_name: sandwicher-domain
     ports:
       - '8000:80'
+    environment:
+      WWWUSER: '${WWWUSER}'
     volumes:
-      - './:/app'
+      - '.:/var/www/html'
     networks:
       - sandwicher-network
 
 networks:
   sandwicher-network:
-      driver: bridge
+    driver: bridge

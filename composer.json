@@ -36,5 +36,7 @@
             "@unitTest"
         ],
         "unitTest": "bin/phpunit --configuration config/unit-test.xml --log-junit test/reports/unitReport.xml"
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
