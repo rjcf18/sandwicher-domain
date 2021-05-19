@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 namespace Sandwicher\Domain\Context\Consumer\Creation;
 
-class HandlerImplementation implements Handler
+class Service implements Handler
 {
     private ConsumerRepository $consumerRepository;
 

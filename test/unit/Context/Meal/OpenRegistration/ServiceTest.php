@@ -4,26 +4,26 @@ namespace UnitTest\Context\Meal\OpenRegistration;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\Exception\MealRegistrationAlreadyOpenedException;
-use Sandwicher\Domain\Context\Meal\OpenRegistration\HandlerImplementation;
+use Sandwicher\Domain\Context\Meal\OpenRegistration\Service;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\MealRepository;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\ResponseModel;
 use Sandwicher\Domain\Context\Meal\OpenRegistration\Validator\Semantic as SemanticValidator;
 use Sandwicher\Domain\Shared\Entity\Meal as MealEntity;
 
-class HandlerImplementationTest extends TestCase
+class ServiceTest extends TestCase
 {
     private MockObject|SemanticValidator $semanticValidatorMock;
 
     private MockObject|MealRepository $mealRepositoryMock;
 
-    private HandlerImplementation $handler;
+    private Service $handlerService;
 
     protected function setUp(): void
     {
         $this->semanticValidatorMock = $this->getSemanticValidatorMock();
         $this->mealRepositoryMock = $this->getMealRepositoryMock();
 
-        $this->handler = new HandlerImplementation($this->semanticValidatorMock, $this->mealRepositoryMock);
+        $this->handlerService = new Service($this->semanticValidatorMock, $this->mealRepositoryMock);
     }
 
     /**
@@ -45,7 +45,7 @@ class HandlerImplementationTest extends TestCase
         $this->expectException($expectedException::class);
         $this->expectExceptionMessage($expectedException->getMessage());
 
-        $this->handler->openRegistration();
+        $this->handlerService->openRegistration();
     }
 
     /**
@@ -70,7 +70,7 @@ class HandlerImplementationTest extends TestCase
             ->method('openRegistration')
             ->willReturn($expectedResponse->getMealEntity());
 
-        $response = $this->handler->openRegistration();
+        $response = $this->handlerService->openRegistration();
 
         $this->assertEquals($expectedResponse, $response);
     }

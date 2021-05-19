@@ -3,7 +3,7 @@ namespace Sandwicher\Domain\Context\Meal\OpenRegistration;
 
 use Sandwicher\Domain\Context\Meal\OpenRegistration\Validator\Semantic as SemanticValidator;
 
-class HandlerImplementation implements Handler
+class Service implements Handler
 {
     private SemanticValidator $semanticValidator;
 
